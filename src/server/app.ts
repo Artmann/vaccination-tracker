@@ -5,11 +5,8 @@ import mount from 'koa-mount';
 import Router from 'koa-router';
 import serve from 'koa-static';
 import { join } from 'path';
-import { createElement } from 'react';
-import ReactDOMServer from 'react-dom/server';
 
-import App from '../app/app';
-import { corgis } from './api/corgis';
+import { reportsRoute } from './reports';
 
 const app = new Koa();
 const router = new Router();
@@ -20,7 +17,7 @@ const staticsPath = process.env['NODE_ENV'] === 'production'
 
 const statics = serve(staticsPath);
 
-router.get('/api/corgis', corgis);
+router.get('/api/reports', reportsRoute);
 
 router.get('/*', async function(context: Context) {
   const template = await fs.readFile(join(staticsPath, 'index.html'),  'utf-8');

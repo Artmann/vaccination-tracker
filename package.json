@@ -15,25 +15,9 @@
     "test": "jest --",
     "test:watch": "jest --watchAll --"
   },
-  "nodemon": {
-    "restartable": "rs",
-    "ignore": [
-      ".git",
-      "node_modules/**/node_modules"
-    ],
-    "verbose": true,
-    "execMap": {
-      "ts": "node --require ts-node/register"
-    },
-    "watch": [
-      "src/server"
-    ],
-    "env": {
-      "NODE_ENV": "development"
-    },
-    "ext": "ts,tsx"
-  },
   "dependencies": {
+    "collect.js": "^4.28.6",
+    "date-fns": "^2.22.1",
     "koa": "^2.11.0",
     "koa-logger": "^3.2.1",
     "koa-mount": "^4.0.0",
@@ -41,6 +25,7 @@
     "koa-static": "^5.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-query": "^3.16.1",
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
@@ -67,14 +52,14 @@
     "eslint-plugin-react": "^7.19.0",
     "extract-css-chunks-webpack-plugin": "^4.7.4",
     "html-webpack-plugin": "^4.3.0",
-    "jest": "^26.0.1",
+    "jest": "^27.0.4",
     "nodemon": "^2.0.3",
     "postcss-cli": "^7.1.1",
     "postcss-loader": "^3.0.0",
     "source-map-loader": "^0.2.4",
     "supertest": "^4.0.2",
     "tailwindcss": "^1.4.4",
-    "ts-jest": "^25.5.0",
+    "ts-jest": "^27.0.3",
     "ts-loader": "^7.0.2",
     "ts-node": "^8.10.1",
     "typescript": "^3.8.3",
