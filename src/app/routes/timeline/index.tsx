@@ -36,7 +36,7 @@ export default function TimelineRoute(): ReactElement {
 
   return (
     <Page
-      headerText="Some random text that describes the page."
+      headerText="Stay up to date with the latest reports."
       title="Vaccination Report"
     >
       <Timeline reports={ data.reports } />
