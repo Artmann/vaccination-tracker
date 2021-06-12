@@ -22,7 +22,7 @@ export function Page({ children, headerText, title }: PageProps): ReactElement {
 
   return (
     <div className="w-full h-screen overflow-hidden bg-purplish-blue leading-7 pt-2">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 text-center md:text-left">
         <h1 className="text-white font-semibold text-lg">
           { title }
         </h1>

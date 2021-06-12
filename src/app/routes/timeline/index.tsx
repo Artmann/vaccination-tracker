@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 
 import { Page } from '../../components/page';
+import { EmptyState } from './empty-state';
 import { Timeline } from './timeline';
 import { useReports } from './use-reports';
 
@@ -31,6 +32,17 @@ export default function TimelineRoute(): ReactElement {
       <div>
         Failed to load data.
       </div>
+    );
+  }
+
+  if (data.reports.length === 0) {
+    return (
+      <Page
+        headerText="Stay up to date with the latest reports."
+        title="Vaccination Report"
+      >
+        <EmptyState />
+      </Page>
     );
   }
 
