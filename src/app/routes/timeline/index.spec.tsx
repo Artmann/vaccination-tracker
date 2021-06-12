@@ -2,6 +2,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { parse } from 'date-fns';
 import React from 'react';
+import { MemoryRouter } from 'react-router';
 
 jest.mock('./use-reports');
 
@@ -18,7 +19,9 @@ describe('Timeline Route', () => {
     });
 
     render(
-      <TimelineRoute />
+      <MemoryRouter>
+        <TimelineRoute />
+      </MemoryRouter>
     );
   });
 
@@ -47,8 +50,10 @@ describe('Timeline Route', () => {
       isLoading: false
     });
 
-    const { debug } = render(
-      <TimelineRoute />
+    render(
+      <MemoryRouter>
+        <TimelineRoute />
+      </MemoryRouter>
     );
 
     expect(screen.getByText('Thursday')).toBeInTheDocument();
@@ -59,6 +64,25 @@ describe('Timeline Route', () => {
     expect(screen.getByText('Friday')).toBeInTheDocument();
     expect(screen.getByText('An average of 30 doses where administered.')).toBeInTheDocument();
     expect(screen.getByText('30 doses where administered.')).toBeInTheDocument();
+  });
+
+  it('shows an empty state when there are no reports', () => {
+    (useReports as jest.Mock).mockReturnValue({
+      data: {
+        reports: []
+      },
+      error: undefined,
+      isLoading: false
+    });
+
+    render(
+      <MemoryRouter>
+        <TimelineRoute />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText('Welcome to the Vaccination Tracker. 😊')).toBeInTheDocument();
+    expect(screen.getByRole('link')).toHaveTextContent('Add a Report');
   });
 
 });
