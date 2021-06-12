@@ -21,5 +21,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended'
   ],
-  rules: {}
+  rules: {
+    '@typescript-eslint/no-use-before-define': 'off',
+    'no-empty': 'off'
+  }
 };
