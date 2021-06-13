@@ -1,22 +1,16 @@
-# React + Koa Template
+# Vaccination Tracker
 
-This template hooks you up with everything you need to build a React SPA with a Koa backend.
+This is an example application that lets users track the number of doses of vaccine administered.
 
-By using this template for your next project, you
+<div style="display: flex; justify-content: center">
 
-- Can write code that matters instead of spending hours on the configuration.
-- Get a toolset that works for both backend and frontend without unnecessary fragmentation.
-- Feel secure in the code you write thanks to TypeScript.
-- Are familiar with the industry's favorite libraries.
-- Don't have to pull your hair, struggling with Webpack.
+![Screenshot 1](./assets/screenshot-1.png)
 
-Want more? Take a look at the [Demo](https://react-koa-template.herokuapp.com/), it got tons of cute dogs.
+![Screenshot 2](./assets/screenshot-2.png)
 
-![Lighthouse Audit](https://i.imgur.com/Nyk2o1f.png)
+</div>
 
 ## Quick Start
-
-Create your repository from this template or clone it as is.
 
 Install the dependencies
 
@@ -87,10 +81,6 @@ it('Shows a picture of a Corgi', () => {
 ## Linting
 
 You can make sure you and your team keep the code style consistent by running `yarn lint`. This is powered by ESLint and rules can be added or removed in `.eslintrc.js`.
-
-## Server-Side Rendering
-
-To improve the performance and to help crawlers, your React app will be rendered server-side. When a page is requested the server will render the HTML from `src/app/index.html`. It will also render the `App` component and insert its markup into the final HTML document.
 
 ## Deploy
 
