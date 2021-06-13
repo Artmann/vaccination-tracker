@@ -1,11 +1,11 @@
 import request from 'supertest';
 
 import app from '../app';
-import { recreateDatabase } from '../database';
+import { recreateDatabase, sequelize } from '../database';
 import { Report } from './report';
 
 describe('Reports', () => {
-  beforeEach(async() => {
+  beforeAll(async() => {
     await recreateDatabase();
   });
 
