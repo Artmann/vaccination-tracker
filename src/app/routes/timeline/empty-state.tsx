@@ -14,7 +14,7 @@ export function EmptyState(): ReactElement {
 
       <div className="mb-8">
         <Link
-          className="bg-purplish-blue text-white no-underline text-center px-12 py-3 shadow-md"
+          className="bg-purplish-blue text-white no-underline text-center px-12 py-3 shadow-md cursor-pointer"
           to="/report"
         >
           Add a Report

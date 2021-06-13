@@ -16,6 +16,7 @@
     "test:watch": "jest --watchAll --"
   },
   "dependencies": {
+    "@headlessui/react": "^1.2.0",
     "collect.js": "^4.28.6",
     "date-fns": "^2.22.1",
     "koa": "^2.11.0",
@@ -35,6 +36,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.4",
+    "@testing-library/user-event": "^13.1.9",
     "@types/jest": "^25.2.1",
     "@types/koa": "^2.11.3",
     "@types/koa-logger": "^3.1.1",
@@ -58,6 +60,7 @@
     "eslint-plugin-react": "^7.19.0",
     "extract-css-chunks-webpack-plugin": "^4.7.4",
     "html-webpack-plugin": "^4.3.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.4",
     "nodemon": "^2.0.3",
     "postcss-cli": "^7.1.1",
