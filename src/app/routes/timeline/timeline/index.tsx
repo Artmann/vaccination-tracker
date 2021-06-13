@@ -38,7 +38,7 @@ export function Timeline({ reports }: TimelineProps): ReactElement {
   const groupKeys = Object.keys(reportsGroupedByDay).sort((a, b) => a < b ? 1 : -1);
 
   return (
-    <div className="mb-32 -ml-3">
+    <div className="mb-32 md:-ml-3">
       <Link
         className="fixed bottom-0 right-0 mb-8 mr-8 block cursor-pointer mx-2 bg-purplish-blue text-white 6ext-center px-4 py-2 shadow-md text-sm border border-gray-300 md:hidden"
         to="/report"
