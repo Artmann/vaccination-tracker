@@ -11,7 +11,7 @@
     "build": "concurrently \"tsc\" \"webpack -p\"",
     "dev": "concurrently \"nodemon\" \"webpack -d -w\"",
     "lint": "eslint ./src --ext .ts",
-    "start": "node dist/server/index.js",
+    "start": "node dist/index.js",
     "test": "cross-env NODE_ENV=test jest --",
     "test:watch": "jest --watchAll --"
   },

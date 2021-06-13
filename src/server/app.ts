@@ -14,7 +14,7 @@ const router = new Router();
 
 const staticsPath = process.env['NODE_ENV'] === 'production'
   ? join(__dirname, '..', 'statics')
-  : join(__dirname, '..', '..', 'dist', 'statics')
+  : join(__dirname, '..', 'dist', 'statics')
 
 const statics = serve(staticsPath);
 
