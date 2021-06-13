@@ -10,7 +10,7 @@ export interface Report {
   id: number,
   locationId: number,
   numberOfDoses: number,
-  timestamp: number
+  timestamp: string
 };
 
 interface ReportsResponse {

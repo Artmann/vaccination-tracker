@@ -1,5 +1,5 @@
 import { collect, Collection } from 'collect.js';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -29,8 +29,8 @@ export function Timeline({ reports }: TimelineProps): ReactElement {
   const reportsGroupedByDay = (collect(reports)
     .map((report: Report): GroupedReport => ({
       ...report,
-      key: format(report.timestamp, 'yyyy-MM-dd'),
-      groupName: format(report.timestamp, 'EEEE')
+      key: format(parseISO(report.timestamp), 'yyyy-MM-dd'),
+      groupName: format(parseISO(report.timestamp), 'EEEE')
     }))
     .groupBy('key')
     .all() as unknown) as Record<string, Collection<GroupedReport>>;
@@ -78,7 +78,7 @@ function TimelineGroup({ reports }: TimelineGroupProps): ReactElement | null {
       { collect(reports).sortByDesc('timestamp').map((report, index) => <TimeLineItem
           key={ index }
           text={ `${ report.numberOfDoses } doses where administered.` }
-          title={ format(report.timestamp, 'yyyy/MM/dd HH:mm:ss') }
+          title={ format(parseISO(report.timestamp), 'yyyy/MM/dd HH:mm:ss') }
         />)
       }
     </>

@@ -17,7 +17,7 @@ export default function ReportRoute(): ReactElement {
   const submitHandler = (numberOfDoses: number, dateTime: Date): void => {
     const report = {
       numberOfDoses: numberOfDoses,
-      timestamp: dateTime.getTime()
+      timestamp: dateTime.toISOString()
     };
 
     mutate(report);

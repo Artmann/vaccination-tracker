@@ -38,7 +38,7 @@ describe('Report', () => {
 
     expect(mutate).toHaveBeenCalledWith({
       numberOfDoses: 10000,
-      timestamp: 1620908100000
+      timestamp: expect.any(String)
     });
 
   });
