@@ -1,7 +1,7 @@
 import request from 'supertest';
 
 import app from '../app';
-import { recreateDatabase, sequelize } from '../database';
+import { recreateDatabase } from '../database';
 import { Report } from './report';
 
 describe('Reports', () => {

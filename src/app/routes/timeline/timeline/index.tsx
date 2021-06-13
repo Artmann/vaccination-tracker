@@ -65,7 +65,7 @@ function TimelineGroup({ reports }: TimelineGroupProps): ReactElement | null {
   const [ firstReport ] = reports;
   const { groupName } = firstReport;
   const totalAmountOfDoses = reports.reduce((sum, report) => sum + report.numberOfDoses, 0);
-  const averageAmountOfDoses = totalAmountOfDoses / reports.length;
+  const averageAmountOfDoses = Math.floor(totalAmountOfDoses / reports.length);
 
   return (
     <>
