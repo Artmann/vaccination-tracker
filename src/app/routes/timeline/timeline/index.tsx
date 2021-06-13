@@ -1,6 +1,7 @@
 import { collect, Collection } from 'collect.js';
 import { format } from 'date-fns';
 import React, { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Report } from '..';
 
@@ -34,10 +35,17 @@ export function Timeline({ reports }: TimelineProps): ReactElement {
     .groupBy('key')
     .all() as unknown) as Record<string, Collection<GroupedReport>>;
 
-  const groupKeys = Object.keys(reportsGroupedByDay).reverse();
+  const groupKeys = Object.keys(reportsGroupedByDay).sort((a, b) => a < b ? 1 : -1);
 
   return (
-    <div className="mb-32">
+    <div className="mb-32 -ml-3">
+      <Link
+        className="fixed bottom-0 right-0 mb-8 mr-8 block cursor-pointer mx-2 bg-purplish-blue text-white 6ext-center px-4 py-2 shadow-md text-sm border border-gray-300 md:hidden"
+        to="/report"
+      >
+        Add Report
+      </Link>
+
       {
         groupKeys.map(key => <TimelineGroup
             key={ key }
@@ -70,7 +78,7 @@ function TimelineGroup({ reports }: TimelineGroupProps): ReactElement | null {
       { collect(reports).sortByDesc('timestamp').map((report, index) => <TimeLineItem
           key={ index }
           text={ `${ report.numberOfDoses } doses where administered.` }
-          title={ format(report.timestamp, 'HH:mm:ss') }
+          title={ format(report.timestamp, 'yyyy/MM/dd HH:mm:ss') }
         />)
       }
     </>
