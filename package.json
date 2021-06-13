@@ -12,12 +12,13 @@
     "dev": "concurrently \"nodemon\" \"webpack -d -w\"",
     "lint": "eslint ./src --ext .ts",
     "start": "node dist/server/index.js",
-    "test": "jest --",
+    "test": "cross-env NODE_ENV=test jest --",
     "test:watch": "jest --watchAll --"
   },
   "dependencies": {
     "@headlessui/react": "^1.2.0",
     "collect.js": "^4.28.6",
+    "cross-env": "^7.0.3",
     "date-fns": "^2.22.1",
     "koa": "^2.11.0",
     "koa-body": "^4.2.0",

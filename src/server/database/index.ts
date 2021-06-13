@@ -1,11 +1,8 @@
 import fs from 'fs';
 import { join } from 'path';
-import { Sequelize } from 'sequelize';
+import { Options, Sequelize } from 'sequelize';
 
-export const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: databasePath()
-});
+export const sequelize = new Sequelize(databaseConfig());
 
 export async function recreateDatabase(): Promise<void> {
   if (process.env['NODE_ENV'] === 'production') {
@@ -14,13 +11,31 @@ export async function recreateDatabase(): Promise<void> {
     return;
   }
 
-  const path = databasePath();
+  await sequelize.drop();
 
-  try {
-    await fs.promises.unlink(path);
-  } catch (error) {}
+  await sequelize.sync({ force: true });
+}
 
-  await sequelize.sync();
+function databaseConfig(): Options {
+  if (process.env['NODE_ENV'] === 'production') {
+    return {
+      dialect: 'sqlite',
+      storage: databasePath()
+    };
+  }
+
+  if (process.env['NODE_ENV'] === 'test') {
+    return {
+      dialect: 'sqlite',
+      logging: false,
+      storage: ':memory:'
+    };
+  }
+
+  return {
+    dialect: 'sqlite',
+    storage: databasePath()
+  };
 }
 
 function databasePath(): string {
@@ -29,12 +44,12 @@ function databasePath(): string {
 
 function databaseName(): string {
   if (process.env['NODE_ENV'] === 'production') {
-    return 'production.sqlite'
+    return 'production.sqlite';
   }
 
   if (process.env['NODE_ENV'] === 'test') {
-    return 'test.sqlite'
+    return 'test.sqlite';
   }
 
-  return 'development.sqlite'
+  return 'development.sqlite';
 }
