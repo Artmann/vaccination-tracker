@@ -32,17 +32,17 @@ describe('Timeline Route', () => {
           {
             id: 45,
             numberOfDoses: 10,
-            timestamp: parse('2021-06-10 12:00:00', 'yyyy-MM-dd HH:mm:ss', new Date()).getTime()
+            timestamp: '2021-06-10T12:00:00.000Z'
           },
           {
             id: 65,
             numberOfDoses: 20,
-            timestamp: parse('2021-06-10 17:00:00', 'yyyy-MM-dd HH:mm:ss', new Date()).getTime()
+            timestamp: '2021-06-10T17:00:00.000Z'
           },
           {
             id: 77,
             numberOfDoses: 30,
-            timestamp: parse('2021-06-11 13:00:00', 'yyyy-MM-dd HH:mm:ss', new Date()).getTime()
+            timestamp: '2021-06-11T13:00:00.000Z'
           }
         ]
       },

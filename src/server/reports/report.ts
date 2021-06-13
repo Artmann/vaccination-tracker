@@ -6,5 +6,5 @@ export class Report extends Model {}
 
 Report.init({
   numberOfDoses: DataTypes.INTEGER,
-  timestamp: DataTypes.INTEGER
+  timestamp: DataTypes.STRING
 }, { sequelize, modelName: 'report' });

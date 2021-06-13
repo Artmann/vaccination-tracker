@@ -2,7 +2,7 @@ import { useMutation, UseMutationResult } from 'react-query';
 
 interface Report {
   numberOfDoses: number;
-  timestamp: number;
+  timestamp: string;
 
   id?: number;
 }

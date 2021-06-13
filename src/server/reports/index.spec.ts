@@ -14,15 +14,15 @@ describe('Reports', () => {
     it('returns a list of reports', async () => {
       await Report.create({
         numberOfDoses: 88,
-        timestamp: 1622788451000
+        timestamp: '2021-06-04T06:34:11.000Z'
       });
       await Report.create({
         numberOfDoses: 122,
-        timestamp: 1622897672000
+        timestamp: '2021-06-05T12:54:32.000Z'
       });
       await Report.create({
         numberOfDoses: 56,
-        timestamp: 1623075163000
+        timestamp: '2021-06-07T14:12:43.000Z'
       });
 
       const server = app.listen();
@@ -36,21 +36,21 @@ describe('Reports', () => {
             createdAt: expect.any(String),
             id: 1,
             numberOfDoses: 88,
-            timestamp: 1622788451000,
+            timestamp: '2021-06-04T06:34:11.000Z',
             updatedAt: expect.any(String)
           },
           {
             createdAt: expect.any(String),
             id: 2,
             numberOfDoses: 122,
-            timestamp: 1622897672000,
+            timestamp: '2021-06-05T12:54:32.000Z',
             updatedAt: expect.any(String)
           },
           {
             createdAt: expect.any(String),
             id: 3,
             numberOfDoses: 56,
-            timestamp: 1623075163000,
+            timestamp: '2021-06-07T14:12:43.000Z',
             updatedAt: expect.any(String)
           }
         ]
@@ -72,7 +72,7 @@ describe('Reports', () => {
         .set('Content-Type', 'application/json')
         .send(JSON.stringify({
           numberOfDoses: 300,
-          timestamp: 1623589468270
+          timestamp: '2021-06-07T14:12:43.000Z'
         }))
         .expect(200);
 
@@ -80,7 +80,7 @@ describe('Reports', () => {
         createdAt: expect.any(String),
         id: expect.any(Number),
         numberOfDoses: 300,
-        timestamp: 1623589468270,
+        timestamp: '2021-06-07T14:12:43.000Z',
         updatedAt: expect.any(String)
       });
 
@@ -95,7 +95,7 @@ describe('Reports', () => {
         .set('Accept', 'application/json')
         .set('Content-Type', 'application/json')
         .send(JSON.stringify({
-          timestamp: 1623589468270
+          timestamp: '2021-06-07T14:12:43.000Z'
         }))
         .expect(400);
 
