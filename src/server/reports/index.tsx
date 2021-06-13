@@ -9,3 +9,22 @@ export async function reportsRoute(context: Context): Promise<void> {
     reports
   };
 }
+
+export async function createReportRoute(context: Context): Promise<void> {
+  const { numberOfDoses, timestamp } = context.request.body;
+
+  if (!numberOfDoses) {
+    context.throw(400, 'numberOfDoses is required.');
+  }
+
+  if (!timestamp) {
+    context.throw(400, 'timestamp is required.');
+  }
+
+  const report = await Report.create({
+    numberOfDoses,
+    timestamp
+  });
+
+  context.body = report;
+};
