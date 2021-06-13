@@ -1,12 +1,14 @@
+import loadable from '@loadable/component';
 import React, { ReactElement } from 'react';
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from 'react-router-dom';
 
-import { ReportRoute, TimelineRoute } from './routes';
+const TimelineRoute = loadable(() => import('./routes/timeline'));
+const ReportRoute = loadable(() => import('./routes/report'));
 
 const queryClient = new QueryClient();
 

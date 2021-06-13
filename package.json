@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.2.0",
+    "@loadable/component": "^5.15.0",
     "collect.js": "^4.28.6",
     "cross-env": "^7.0.3",
     "date-fns": "^2.22.1",
@@ -44,6 +45,7 @@
     "@types/koa-mount": "^4.0.0",
     "@types/koa-router": "^7.4.0",
     "@types/koa-static": "^4.0.1",
+    "@types/loadable__component": "^5.13.3",
     "@types/node": "^13.13.5",
     "@types/react": "^16.9.34",
     "@types/react-datepicker": "^3.1.8",
